@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tax Calculator</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{{ url_for('static', filename='tax_calculator.js') }}"></script>
+</head>
+<body>
+    <h1>Tax Calculator</h1>
+    <form>
+        <label>Yearly Salary:
+            <input type="text" id="yearly_salary" class="salary-input">
+        </label><br>
+        <label>Monthly Salary:
+            <input type="text" id="monthly_salary" class="salary-input">
+        </label>
+        <br>Tax Bracket:
+        <select id="tax_bracket">
+            {% for bracket in tax_brackets %}
+            <option value="{{ bracket }}">{{ bracket }}</option>
+            {% endfor %}
+        </select><br>
+        <span id="net_monthly_salary">Net Monthly Salary: </span>
+    </form>
+</body>
+</html>
